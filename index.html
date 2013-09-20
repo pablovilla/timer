@@ -1,0 +1,135 @@
+<!doctype html>
+
+<html>
+  <head>
+    <title>justGage.com</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+
+
+    <link rel="stylesheet" href="resources/css/style.min.css">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:700' rel='stylesheet' type='text/css'>
+<style type="text/css">
+body{
+		font: 12px/14px normal Arial, 'Helvetica', Verdana, sans-serif;
+		color:#ccc;
+		background:#ddd;
+		}
+p{
+	border-bottom: 1px dotted #999;
+	float:left;
+	width:48%;
+	margin:0;
+	padding:4px;
+	color:#666;
+	font-size: 14px;
+	}
+
+a {
+	font-size:18px;
+	font-weight: bold;
+	padding:6px;
+	border-radius:12px;
+	background: #666;
+	color:#fff;
+	text-decoration:none;
+	margin:20px auto;
+	display:block;
+	}
+#horas {
+	padding:14px;
+	border-radius:12px;
+	background: #fff;
+	margin:20px auto;
+	clear:both;
+	overflow:hidden;
+	}
+	
+	</style>
+<script>
+try {
+
+    if (!window.openDatabase) {
+
+        alert('not supported');
+
+    } else {
+
+        var shortName = 'mydatabase';
+
+        var version = '1.0';
+
+        var displayName = 'My Important Database';
+
+        var maxSize = 65536; // in bytes
+
+        var db = openDatabase(shortName, version, displayName, maxSize);
+
+ 
+
+        // You should have a database instance in db.
+
+    }
+
+} catch(e) {
+
+    // Error handling code goes here.
+
+    if (e == 2) {
+
+        // Version number mismatch.
+
+        alert("Invalid database version.");
+
+    } else {
+
+        alert("Unknown error "+e+".");
+
+    }
+
+    return;
+
+}
+
+ 
+
+alert("Database is: "+db);
+
+</script>
+<script>
+
+
+var counter = 0;
+
+ function date(){
+ counter++;
+var d = new Date();
+var h = d.getHours();
+var m = d.getMinutes();
+var s = d.getSeconds();
+
+if (s < 10){
+	s = "0" + s;
+	}
+ 
+var para=document.createElement("p");
+var now = h +" : " + m  +" : " + s;
+var node=document.createTextNode(counter + " .- " + now);
+para.appendChild(node);
+
+var element=document.getElementById("horas");
+element.appendChild(para);
+
+	//document.getElementById("horas").innerHTML= now;	
+}
+	</script>
+	</head>
+	
+	<body>
+	
+	
+
+	<a href="javascript:date();">Click</a>
+	<div id="horas"></div>
+	</body>
+	</html>
